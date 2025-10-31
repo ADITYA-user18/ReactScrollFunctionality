@@ -1,0 +1,25 @@
+.Scroller{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.StaticRange {
+  position: fixed;
+  top: 0;           
+  left: 0;
+  width: 80%;
+  height: 10px;      
+  z-index: 1000;
+  accent-color: #00bcd4;  
+  background-color: transparent;
+}
+
+
+.huli{
+    position: fixed;
+    top: 0;
+    margin-left: 450px;
+}
