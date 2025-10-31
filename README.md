@@ -1,16 +1,114 @@
-# React + Vite
+🧭 Scroll Indicator React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and interactive React.js project that visually displays your scroll progress using a fixed range slider (progress bar) at the top of the page.
+It also fetches product data from a public API and renders it dynamically — great for learning scroll events, props communication, and React hooks.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🎚️ Live Scroll Indicator: A fixed slider at the top that updates as you scroll.
 
-## React Compiler
+🔄 Dynamic Data Fetching: Fetches product data from dummyjson.com
+.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 Parent ↔ Child Communication: Demonstrates sending data from child → parent using callback props.
 
-## Expanding the ESLint configuration
+🎨 Smooth UI: Modern look using CSS and smooth updates.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+⚙️ React Hooks Used: useState and useEffect for state management and lifecycle handling.
+
+🧩 Tech Stack
+Tool	Purpose
+React.js	Frontend framework
+Fetch API	Data fetching from dummy API
+CSS	Styling and positioning
+Vite / CRA	React setup (choose whichever you used)
+📁 Project Structure
+scroll-indicator-app/
+│
+├── src/
+│   ├── components/
+│   │   └── Scroll.jsx         # Handles scrolling logic and data fetch
+│   ├── App.jsx                # Parent component showing scroll bar and data
+│   ├── App.css                # Styling for fixed slider and layout
+│   └── main.jsx               # Entry point
+│
+├── package.json
+├── README.md
+└── index.html
+
+💻 How It Works
+
+The App.jsx component renders:
+
+A fixed <input type="range" /> element acting as the scroll indicator.
+
+The <Scroll /> child component that fetches and displays content.
+
+Inside Scroll.jsx:
+
+On every scroll, it calculates how much of the page has been scrolled using:
+
+const scrollTop = document.documentElement.scrollTop;
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const scrolled = (scrollTop / height) * 100;
+
+
+It passes this scrolled value to the parent (App.jsx) through the onScrollChange callback prop.
+
+The parent (App.jsx) updates its state and reflects it on the fixed slider value.
+
+🧠 Key Learning Concepts
+
+Child → Parent data flow using callback props.
+
+Handling browser scroll events in React.
+
+Using fixed positioning for persistent UI components.
+
+Fetching and displaying API data with async/await.
+
+🛠️ Installation & Setup
+
+Clone this repository
+
+git clone https://github.com/your-username/scroll-indicator-react.git
+cd scroll-indicator-react
+
+
+Install dependencies
+
+npm install
+
+
+Start the development server
+
+npm run dev
+
+
+Open your browser at http://localhost:5173/
+ (or the port shown in terminal).
+
+📸 Demo Preview
+
+(You can add a screenshot or GIF here)
+
+Example layout:
+
++-------------------------------------------------------+
+| [■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■]  (slider)
+| Scroll Indicator
+| Product 1
+| Product 2
+| Product 3
+| ...
++-------------------------------------------------------+
+
+⚙️ Customization Ideas
+
+Add smooth animations to the scroll bar.
+
+Replace range input with a custom progress bar.
+
+Display scroll % as text on the screen.
+
+Fetch data from another API or add infinite scrollin
